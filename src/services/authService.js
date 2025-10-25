@@ -8,8 +8,10 @@ export const login = async (username, password) => {
   return response.data;
 };
 
+// 🌟 FIX: Added 'await' and returned 'response.data'
 export const signup = async (username, email, password) => {
-  return axios.post(`${API_URL}/sign`, { username, email, password });
+  const response = await axios.post(`${API_URL}/sign`, { username, email, password });
+  return response.data; // Return the data upon successful signup
 };
 
 export const logout = () => {
